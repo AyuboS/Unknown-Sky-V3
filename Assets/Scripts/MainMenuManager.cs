@@ -6,12 +6,25 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
+
+
+    bool isGameStarted = false;
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+
     public void StartTheGame()
     {
         SceneManager.LoadScene("LevelOne");
+        isGameStarted = true;
     }
-    public void OnApplicationQuit()
+
+
+    public void Exit()
     {
-        Debug.Log("Exit");
+        Application.Quit();
     }
 }

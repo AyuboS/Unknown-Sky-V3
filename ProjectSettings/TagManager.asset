@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - DieTrigger
   - Pullable
+  - TutorialText
   layers:
   - Default
   - TransparentFX

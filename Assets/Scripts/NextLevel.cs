@@ -1,8 +1,7 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class GameOverManager : MonoBehaviour
+public class NextLevel : MonoBehaviour
 {
     private GameManager gameManager;
 
@@ -11,7 +10,7 @@ public class GameOverManager : MonoBehaviour
         gameManager = GameManager.Instance;
     }
 
-    // This is the method that allows reassignment of the GameManager instance
+    // This method allows reassignment of the GameManager instance
     public void ReassignGameManager(GameManager newManager)
     {
         gameManager = newManager;
@@ -23,19 +22,12 @@ public class GameOverManager : MonoBehaviour
         {
             if (gameManager != null)
             {
-                gameManager.DeathTrigger();
-                StartCoroutine(ToMainMenu());
+                gameManager.NextLevel();
             }
             else
             {
                 Debug.LogWarning("GameManager is null or has been destroyed.");
             }
         }
-    }
-
-    IEnumerator ToMainMenu()
-    {
-        yield return new WaitForSeconds(1.5f);
-        SceneManager.LoadScene("MainMenu");
     }
 }
